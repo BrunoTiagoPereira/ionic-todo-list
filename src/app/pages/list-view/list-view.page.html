@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Task List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div *ngIf="!listIsLoaded" class="loading-container">
+      Please Wait...
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <div *ngIf="todoList.length>0"  class="todos-container"> 
+       <div *ngFor="let todo of todoList" class="items-container">
+          <app-todo-item-detail [todo]="todo"></app-todo-item-detail>
+       </div>
+    </div>
+
+    <div *ngIf="todoList.length==0 && listIsLoaded" class="nothing-container">
+      <h1>There are nothing to do!</h1>
+    </div>
+</ion-content>
